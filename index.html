@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A multilingual civic complaint classification and department suggestion demo." />
+  <title>Multilingual Civics Complaint Router</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand-mark" aria-hidden="true">CC</div>
+    <div>
+      <p class="eyebrow">CIVIC CONNECT</p>
+      <h1>Multilingual Civics Complaint Router</h1>
+      <p class="subtitle">Describe a local issue in your language. Get a suggested category and department.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro-card">
+      <div>
+        <p class="eyebrow">COMMUNITY • ACCESS • ACTION</p>
+        <h2>Your concern deserves to be understood.</h2>
+        <p>Enter a civic complaint in English, Telugu, or Hindi. This demo identifies common issue keywords and suggests where the complaint may belong.</p>
+      </div>
+      <div class="intro-icon" aria-hidden="true">🏙️</div>
+    </section>
+
+    <section class="router-card" aria-labelledby="form-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">COMPLAINT ROUTER</p>
+          <h2 id="form-title">Describe the problem</h2>
+        </div>
+        <span class="status-pill"><span class="status-dot"></span> Demo mode</span>
+      </div>
+
+      <form id="complaint-form">
+        <label for="language">Complaint language</label>
+        <select id="language" name="language">
+          <option value="auto">Auto-detect / choose automatically</option>
+          <option value="en">English</option>
+          <option value="te">తెలుగు (Telugu)</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+        </select>
+
+        <label for="complaint">Your complaint</label>
+        <textarea id="complaint" name="complaint" rows="5" required placeholder="Example: There is garbage piling up near our street..."></textarea>
+        <p class="field-hint">Avoid including private information such as phone numbers, identity numbers, or exact personal addresses.</p>
+
+        <div class="example-row">
+          <span>Try an example:</span>
+          <button type="button" class="example-chip" data-example="There is garbage piling up near our street.">Garbage</button>
+          <button type="button" class="example-chip" data-example="మా వీధిలో నీటి సరఫరా లేదు.">Water (Telugu)</button>
+          <button type="button" class="example-chip" data-example="हमारी सड़क पर बहुत गड्ढे हैं।">Road (Hindi)</button>
+        </div>
+
+        <button class="primary-button" type="submit">Find suggested department <span aria-hidden="true">→</span></button>
+      </form>
+    </section>
+
+    <section id="result" class="result-card hidden" aria-live="polite">
+      <div class="result-top">
+        <div>
+          <p class="eyebrow">SUGGESTED ROUTE</p>
+          <h2 id="result-title">Complaint result</h2>
+        </div>
+        <span id="priority-badge" class="priority-badge">Medium priority</span>
+      </div>
+      <div class="result-grid">
+        <div class="result-item"><span class="result-label">Detected language</span><strong id="result-language">English</strong></div>
+        <div class="result-item"><span class="result-label">Issue category</span><strong id="result-category">Sanitation</strong></div>
+        <div class="result-item"><span class="result-label">Suggested department</span><strong id="result-department">Municipal Sanitation Department</strong></div>
+      </div>
+      <div class="next-step">
+        <strong>Suggested next step</strong>
+        <p id="result-action">Contact your local municipality or use its official complaint channel.</p>
+      </div>
+      <p id="result-note" class="result-note"></p>
+    </section>
+
+    <section class="how-card">
+      <h2>How it works</h2>
+      <div class="steps">
+        <div><span>01</span><strong>Describe</strong><p>Write the issue in a supported language.</p></div>
+        <div><span>02</span><strong>Classify</strong><p>Keyword rules estimate the complaint category.</p></div>
+        <div><span>03</span><strong>Route</strong><p>See a suggested department and next step.</p></div>
+      </div>
+    </section>
+
+    <aside class="disclaimer">
+      <strong>Important:</strong> This is a student demonstration, not an official government service. It does not submit complaints to authorities. Results are keyword-based suggestions and may be inaccurate. Verify the correct department and use official local-government channels.
+    </aside>
+  </main>
+
+  <footer>
+    <p>Built as a civic-tech learning project • Multilingual Civics Complaint Router</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
